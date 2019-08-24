@@ -1,0 +1,60 @@
+{
+  "//": "这个必须写2 ,清单文件的版本",
+  "manifest_version": 2,
+  "//": "插件的名称",
+  "name": "demo",
+  "//": "插件的版本",
+  "version": "1.0.0",
+  "//": "插件的描述",
+  "description": "这是一个插件的描述",
+  "//": "图标 一般偷懒全部用一个尺寸也木有问题",
+  "icons": {
+    "16": "imgs/icon.png",
+    "48": "imgs/icon.png",
+    "128": "imgs/icon.png"
+  },
+  "//": "会一直常驻在后台的js和页面",
+  "//": "2 种方式指定 如果指定js就会自动生成一个背景页面  page scripts ",
+  "backgroud": {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "//": "浏览器右上角图标设置, brower_action page_action   这两个的配置是相似的",
+  "browser_action": {
+    "default_icon": "imgs/icon.png",
+    "//": "鼠标悬停时的标题,可选",
+    "default_tilte": "brower_title",
+    "default_popup": "popup.html"
+  },
+  "//": "需要直接注入页面的js",
+  "content_scripts": [
+    {
+      "//": "[<all_urls>] 匹配所有urls   当matches得到满足时,向页面按顺序注入如下js  还可以注入css ,但是一般不注入 ",
+      "matches": [
+        "https://www.zhihu.com*"
+      ],
+      "js": [
+        "js/jquery-3.3.1.min.js",
+        "js/content-script.js"
+      ],
+      "//": " 代码注入时间 document_start document_end  document_idle(默认)  document_end，则文件将在创建完DOM之后，但还没有加载类似于图片或frame等的子资源前立刻注入",
+      "run_at": "document_end"
+    }
+  ],
+  "//": "权限申请",
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "\\": "被注入的页面需要访问的资源 js css",
+  "web_accessible_resources": [
+    "js/inject.js"
+  ]
+}
