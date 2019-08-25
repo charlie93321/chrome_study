@@ -4,11 +4,47 @@
   <meta charset="UTF-8">
   <title>主窗口-main panel</title>
   <script type="text/javascript" src="js/3rd/jquery.min.js"></script>
-  <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <script type="text/javascript" src="js/3rd/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/mainPanel.js"></script>
+   <script src="js/3rd/canvas-nest.js" type="text/javascript"></script>
+   <style>
+   .radio-inline{
+        margin: 5px;
+   }
+   td{
+   word-break: break-all; word-wrap:break-word;
+
+   }
+</style>
 </head>
-<body>
+<body class="badge-dark">
+<input class="form-control" style="width: 50%;display: inline;margin-top: 5px;margin-bottom: 5px" placeholder="请输入key" >
+<a class="btn btn-danger" style="width: 10%">搜索</a>
+<label class="radio-inline" >
+        <input type="radio" name="requestType" id="type3"  value="all" checked> all
+</label>
+<label class="radio-inline">
+        <input type="radio" name="requestType" id="type1" value="application/json" > application/json
+</label>
+<label class="radio-inline">
+        <input type="radio" name="requestType" id="type2"  value="text/html"> text/html
+</label>
+<label class="radio-inline">
+        <input type="radio" name="requestType" id="type3"  value="application/javascript"> application/javascript
+</label>
+
+<a class="btn btn-info" id="clearBtn" style="width: 5%;float: right;margin-top: 5px;margin-right: 5px;margin-bottom: 5px">清空</a>
+
+<table id="data" class="table table-bordered table-dark">
+    <tr id="thead" style="text-align: center">
+       <th width="30%">url</th>
+       <th width="5%">请求方式</th>
+       <th width="10%">请求类型</th>
+       <th width="40%">请求体</th>
+       <th width="15%">响应体</th>
+    </tr>
+</table>
 
 </body>
 </html>
