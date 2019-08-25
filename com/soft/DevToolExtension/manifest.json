@@ -1,32 +1,30 @@
 {
-  "name": "dev-1001",
-  "version": "1.0",
+  "name": "开发者工具页面",
+  "version": "1.0.3",
   "minimum_chrome_version": "10.0",
   "devtools_page": "devtools.html",
   "manifest_version": 2,
   "icons": {
-    "16": "dev.png",
-    "48": "dev.png",
-    "128": "dev.png"
+    "16": "imgs/dev_bg.png",
+    "48": "imgs/dev_bg.png",
+    "128": "imgs/dev_bg.png"
   },
   "background": {
     "scripts": [
-      "jquery.min.js",
-      "background.js"
+      "js/3rd/jquery.min.js",
+      "js/background.js"
     ]
   },
   "permissions": [
-    "contextMenus",
     "tabs",
-    "notifications",
     "webRequest",
     "webRequestBlocking",
     "storage",
-    "<all_urls>",
-    "cookies",
-    "debugger"
+    "<all_urls>"
   ],
   "web_accessible_resources": [
-    "*"
+    "js/*",
+    "css/*",
+    "imgs/*"
   ]
 }
