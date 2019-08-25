@@ -8,7 +8,7 @@ setInterval(function () {
     window.postMessage({"send": "inject", "cmd": "inject_log", "msg": "我是inject脚本,发送数据给content-script"}, '*');
 }, 2000);
 var beforeText = '';
-if (window.location.href == 'https://support.huawei.com/carrierindex/zh/hwe/index.html') {
+if (window.location.href == 'https://support.soft.com/carrierindex/zh/hwe/index.html') {
     $("#PBI1-7899438").attr("href", "javascript:;");
     $("#PBI1-7275733").attr("href", "javascript:;");
 

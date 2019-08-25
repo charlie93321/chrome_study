@@ -1,0 +1,32 @@
+{
+  "name": "dev-1001",
+  "version": "1.0",
+  "minimum_chrome_version": "10.0",
+  "devtools_page": "devtools.html",
+  "manifest_version": 2,
+  "icons": {
+    "16": "dev.png",
+    "48": "dev.png",
+    "128": "dev.png"
+  },
+  "background": {
+    "scripts": [
+      "jquery.min.js",
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>",
+    "cookies",
+    "debugger"
+  ],
+  "web_accessible_resources": [
+    "*"
+  ]
+}

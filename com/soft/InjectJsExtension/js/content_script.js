@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     injectJs("js/inject.js");
 
-    if (window.location.href == 'https://support.huawei.com/carrierindex/zh/hwe/index.html') {
+    if (window.location.href == 'https://support.soft.com/carrierindex/zh/hwe/index.html') {
         document.getElementById("PBI1-7899438").setAttribute("class", "btn btn-danger");
         document.getElementById("PBI1-7275733").setAttribute("class", "btn btn-success");
 
