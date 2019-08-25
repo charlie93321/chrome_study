@@ -27,20 +27,28 @@ $(function () {
         let msg = new SpeechSynthesisUtterance($(this).text());
         speechSynthesis.speak(msg);
         if (msg.text == '向背景页发送数据') {
+            // popup 向 backgroud 发送数据
             var bg = chrome.extension.getBackgroundPage();
             bg.receivePopData({'send': 'popup', 'cmd': 'speek', 'msg': '我是背景页,我已接收到来自popup页面的数据'});
         } else {
-            sendMessageToContentScript({'send': 'popup', 'cmd': 'speek', 'msg': '我是content-script,我已接收到来自popup页面的数据'}, function (response) {
+            // popup 向 content-script 发送数据
+            sendMessageToContentScript({
+                'send': 'popup',
+                'cmd': 'speek',
+                'msg': '我是content-script,我已接收到来自popup页面的数据'
+            }, function (response) {
                 console.log('来自content的回复：' + response);
             });
         }
     });
 
+    // ---------------------
     $(".bgsendData").bind("click", function () {
         var bg = chrome.extension.getBackgroundPage();
         bg.sendData($(this).text());
     });
 
+    //  监听来自背景页的数据
     var hiddenEvent = document.getElementById('bgMsg');
     hiddenEvent.addEventListener('myCustomEvent', function () {
         var data = $('#bgMsg').val();
@@ -51,6 +59,13 @@ $(function () {
             speechSynthesis.speak(msg);
             $('#bgMsg').val('');
         }
+    });
+
+    // 监听来自content-script的消息
+    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+        console.log('收到来自content-script的消息：');
+        console.log(request, sender, sendResponse);
+        sendResponse('我是pop页面，我已收到你的消息：' + JSON.stringify(request));
     });
 
 });

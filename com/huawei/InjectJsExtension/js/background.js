@@ -1,3 +1,4 @@
+// 背景页 接收来自 popup的数据
 function receivePopData(obj) {
     console.log("接收到pop页的数据" + JSON.stringify(obj));
     if (obj && obj.send != undefined && obj.cmd != undefined) {
@@ -18,6 +19,7 @@ function sendMessageToContentScript(message, callback) {
 
 function sendData(msg) {
     if (msg != undefined && msg != null && msg != '') {
+        // 背景页向popup页面发送数据
         if (msg == '背景页向popup发送数据') {
             let msg2 = new SpeechSynthesisUtterance(msg);
             speechSynthesis.speak(msg2);
@@ -38,7 +40,9 @@ function sendData(msg) {
 
 
             }
+
         } else {
+            // 背景页向content-script发送数据
             let msg2 = new SpeechSynthesisUtterance(msg);
             speechSynthesis.speak(msg2);
             sendMessageToContentScript({
@@ -51,3 +55,11 @@ function sendData(msg) {
         }
     }
 }
+
+
+// 监听来自content-script的消息
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    console.log('收到来自content-script的消息：');
+    console.log(request, sender, sendResponse);
+    sendResponse('我是后台，我已收到你的消息：' + JSON.stringify(request));
+});
