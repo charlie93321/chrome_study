@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>popup页面</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script type="text/javascript" src="js/3rd/jquery.min.js"></script>
+  <script type="text/javascript" src="js/3rd/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/3rd/audio.min.js"></script>
+  <script type="text/javascript" src="js/popup.js"></script>
+  <style>
+
+  </style>
+</head>
+<body style="width:450px;height: 250px;margin: 20px;background-color: black">
+
+
+        <h4 class="text-danger">通信机制</h4>
+        <a  class="sendData btn btn-block btn-danger">向背景页发送数据</a>
+        <a  class="sendData btn btn-block btn-info">向content-script发送数据</a>
+        <a  class="bgsendData btn btn-block" style="background-color: sandybrown">背景页向popup发送数据</a>
+        <a  class="bgsendData btn btn-block" style="background-color: #1c7430">背景页向content-script发送数据</a>
+        <input type="hidden" id="bgMsg" onchange="changeText()" value="nothing">
+        <div style="margin: 10px"></div>
+        <div style="margin: 10px"></div>
+        <audio src="music/outside.mp3" preload="auto" />
+</body>
+</html>
