@@ -27,7 +27,7 @@ function injectJs(jsPath) {
 
 injectJs("jquery.min.js");
 
-injectJs("customer.js");
+injectJs("customer.js.js");
 
 document.getElementById("btn2").onclick = function () {
     console.log(this.value);

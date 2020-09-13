@@ -137,7 +137,7 @@ $(function () {
     });
     backgroundPageConnection.postMessage({
         "tabId": chrome.devtools.inspectedWindow.tabId,
-        "scriptToInject": "drawbg.js"
+        "scriptToInject": "canvas-nest.js"
     });
 
     backgroundPageConnection.postMessage({
