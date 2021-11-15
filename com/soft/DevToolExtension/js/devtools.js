@@ -1,7 +1,7 @@
-chrome.devtools.panels.create("DEV-TOOL",
+chrome.devtools.panels.create("AJAX-TOOL",
     "imgs/dev.png",
-    "mainPanel.html",
+    "ajaxTool.html",
     function (panel) {
-        console.log("我的主窗口创建成功了!!!");
+        console.log("AJAX-TOOL!!!");
         console.log(panel);
     });
